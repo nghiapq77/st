@@ -2115,6 +2115,14 @@ run:
 	xinit(cols, rows);
 	xsetenv();
 	selinit();
+        /* Font size issue
+        To put tmux bar at bottom
+        size 15 and zoom(.f=-1) works but not 14
+        TODO: find a more elegant way to fix this
+        */
+	Arg arg = (Arg) { .f = -1 };
+        zoom(&arg);
+
 	run();
 
 	return 0;
